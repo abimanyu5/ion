@@ -6,6 +6,7 @@ import Jobs from '../pages/Jobs';
 import Interviews from '../pages/Interviews';
 import Results from '../pages/Results';
 import Profile from '../pages/Profile';
+import EditProfile from '../pages/EditProfile';
 import Login from '../pages/Login';
 import {ExamplePageTopNavigation} from '../pages/ExamplePageTopNavigation';
 import {ExamplePageBackTopNavigation} from '../pages/ExamplePageBackTopNavigation';
@@ -59,6 +60,11 @@ const Router = () => {
       <Stack.Screen
         name="JobsDetail"
         component={JobsDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
         options={{headerShown: false}}
       />
       <Stack.Screen

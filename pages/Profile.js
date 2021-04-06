@@ -13,6 +13,16 @@ const Profile = ({navigation}) => {
   // const navigateDetails = () => {
   //   navigation.navigate('Details');
   // };
+  const navigateDetails = (userID, id, cv,dob,email,fullname) => {
+    navigation.navigate('EditProfile', {
+      userID: userID,
+      id: id,
+      cv: cv,
+      dob: dob,
+      email: email,
+      fullname: fullname,
+    });
+  };
 
   const getData = async () => {
     try {
@@ -81,10 +91,7 @@ const Profile = ({navigation}) => {
                 <Divider />
 
                 <Text style={styles.textLabel}>CV</Text>
-                <Image
-                  style={styles.avatar}
-                  source={interview.cv}
-                />
+                <Image style={styles.avatar} source={interview.cv} />
                 <Divider />
                 <Text style={styles.textLabel}>Password</Text>
                 <Text style={styles.text}>******</Text>
@@ -92,6 +99,7 @@ const Profile = ({navigation}) => {
                 <Button
                   style={styles.button}
                   appearance="outline"
+                  onPress={navigateDetails}
                   status="primary">
                   Edit
                 </Button>
