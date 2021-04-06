@@ -83,7 +83,7 @@ const Profile = ({navigation}) => {
                 <Divider />
 
                 <Text style={styles.textLabel}>DOB</Text>
-                <Text style={styles.text}>{interview.email}</Text>
+                <Text style={styles.text}>{interview.dob}</Text>
                 <Divider />
 
                 <Text style={styles.textLabel}>Email</Text>
