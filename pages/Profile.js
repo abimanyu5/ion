@@ -5,6 +5,7 @@ import {SafeAreaView, StyleSheet, Image, ScrollView} from 'react-native';
 import {Layout, Text, Card, Divider, Button} from '@ui-kitten/components';
 import {AsyncStorage} from '@react-native-async-storage/async-storage';
 import firestore from '@react-native-firebase/firestore';
+import moment from 'moment';
 
 const Profile = ({navigation}) => {
   const [bankData, setBankData] = useState([]);
@@ -13,15 +14,8 @@ const Profile = ({navigation}) => {
   // const navigateDetails = () => {
   //   navigation.navigate('Details');
   // };
-  const navigateDetails = (userID, id, cv,dob,email,fullname) => {
-    navigation.navigate('EditProfile', {
-      userID: userID,
-      id: id,
-      cv: cv,
-      dob: dob,
-      email: email,
-      fullname: fullname,
-    });
+  const navigateEdit = () => {
+    navigation.navigate('EditProfile');
   };
 
   const getData = async () => {
@@ -83,7 +77,7 @@ const Profile = ({navigation}) => {
                 <Divider />
 
                 <Text style={styles.textLabel}>DOB</Text>
-                <Text style={styles.text}>{interview.dob}</Text>
+                <Text style={styles.text}>{moment(interview.dob).format('DD-MM-YYYY')}</Text>
                 <Divider />
 
                 <Text style={styles.textLabel}>Email</Text>
@@ -91,7 +85,7 @@ const Profile = ({navigation}) => {
                 <Divider />
 
                 <Text style={styles.textLabel}>CV</Text>
-                <Image style={styles.avatar} source={interview.cv} />
+            
                 <Divider />
                 <Text style={styles.textLabel}>Password</Text>
                 <Text style={styles.text}>******</Text>
@@ -99,7 +93,7 @@ const Profile = ({navigation}) => {
                 <Button
                   style={styles.button}
                   appearance="outline"
-                  onPress={navigateDetails}
+                  onPress={navigateEdit}
                   status="primary">
                   Edit
                 </Button>
